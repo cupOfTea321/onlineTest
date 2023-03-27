@@ -221,9 +221,13 @@ const MainPage = () => {
                             </>
                             :
                             <Box sx={{margin: '0 auto'}}>
-                                <Typography component={'h3'} sx={{fontSize: '32px', marginBottom: '20px'}}>
+                                <Typography component={'h3'} sx={{fontSize: {sm: '32px', xs: '20px'}, marginBottom: '5px'}}>
                                     Правильных ответов {score} из {questions.length}
                                 </Typography>
+                                {score >= 8 ?
+                                <Typography sx={{color: '#20B2AA', marginBottom: '10px'}}>Поздравляем, экзамен сдан!</Typography>
+                                : <Typography sx={{color: '#F08080', marginBottom: '10px'}}>Извините, экзамен не сдан, попробуйте в следующий раз</Typography>
+                                }
                                 <MyChart UserData={UserData}/>
                                 <Button onClick={refresh} variant="outlined" sx={{
                                     marginBottom: '10px',

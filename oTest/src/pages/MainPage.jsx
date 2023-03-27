@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {Box, Button, Container, Typography} from "@mui/material";
+import MyChart from "../components/MyChart.jsx";
 
 const questions = [
     {
@@ -128,6 +129,7 @@ const questions = [
         ]
     },
 ]
+
 const MainPage = () => {
     // текущий вопрос
     const [currentQuestion, setCurrentQuestion] = useState(0)
@@ -136,6 +138,18 @@ const MainPage = () => {
     // пора ли показывать результат
     const [showScore, setShowScore] = useState(false)
 
+    const UserData = [
+        {
+            id: 1,
+            userGain: score,
+            name: 'Баллы'
+        },
+        {
+            id: 2,
+            userGain: questions.length - score,
+            name: 'Ошибки'
+        },
+    ]
     const handleAnswerClick = (isCorrect) => {
         if (isCorrect) {
             setScore(score + 1)
@@ -177,7 +191,7 @@ const MainPage = () => {
                         flexDirection: {lg: 'row', cm:'column', sm:'column', xs:'column'},
                         justifyContent: {lg: 'space-between', cm: 'center', sm: 'center', xs: 'center'},
                         alignItems: 'center',
-                        height: {sm: '60vh', xs:'75vh'},
+                        height: {lg: '60vh', md:'75vh', sm: '75vh', xs: '75vh'},
                         borderRadius: '20px'
                     }}>
                         {!showScore ?
@@ -199,7 +213,7 @@ const MainPage = () => {
                                             marginTop: '10px',
                                             borderRadius: '20px',
                                             padding: '5px',
-                                            fontSize: {cm: '14px', xs: '10px'},
+                                            fontSize: {md: '14px',sm: '10px', xs: '10px'},
                                             borderColor: 'black',
 
                                         }}>{btn.ans}</Button>
@@ -211,11 +225,13 @@ const MainPage = () => {
                                 <Typography component={'h3'} sx={{fontSize: '32px'}}>
                                     Правильных ответов {score} из {questions.length}
                                 </Typography>
+                                <MyChart UserData={UserData}/>
                                 <Button onClick={refresh} variant="outlined" sx={{
                                     marginBottom: '10px',
                                     borderRadius: '20px',
                                     padding: '5px',
                                     borderColor: 'black',
+                                    marginTop: '10px'
                                 }}>
                                     Попробовать ещё раз?
                                 </Button>

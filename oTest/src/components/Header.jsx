@@ -1,7 +1,8 @@
 import React from 'react';
 import {AppBar, Avatar, Box, Container, IconButton, Menu, MenuItem, Toolbar, Tooltip, Typography} from "@mui/material";
-
-const settings = [ 'Logout'];
+import {Link} from "react-router-dom";
+import user from '/user.png'
+const settings = [ 'Выйти'];
 
 const Header = () => {
     const [anchorElUser, setAnchorElUser] = React.useState(null);
@@ -34,7 +35,7 @@ const Header = () => {
                     <Box >
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <Avatar alt="Remy Sharp" src={user} />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -55,7 +56,10 @@ const Header = () => {
                         >
                             {settings.map((setting) => (
                                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                                    <Typography textAlign="center">{setting}</Typography>
+                                    <Link to={'/auth'} style={{color: 'black'}}>
+                                        <Typography textAlign="center">{setting}</Typography>
+                                    </Link>
+
                                 </MenuItem>
                             ))}
                         </Menu>

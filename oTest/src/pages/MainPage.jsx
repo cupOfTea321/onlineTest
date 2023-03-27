@@ -153,7 +153,6 @@ const MainPage = () => {
     const handleAnswerClick = (isCorrect) => {
         if (isCorrect) {
             setScore(score + 1)
-            console.log(score)
         }
 
         // проверка на последний вопрос
@@ -211,7 +210,7 @@ const MainPage = () => {
                                             onClick={() => handleAnswerClick(btn.isCorrect)}
                                             variant="outlined" sx={{
                                             marginTop: '10px',
-                                            borderRadius: '20px',
+                                            borderRadius: '10px',
                                             padding: '5px',
                                             fontSize: {md: '14px',sm: '10px', xs: '10px'},
                                             borderColor: 'black',
@@ -222,16 +221,16 @@ const MainPage = () => {
                             </>
                             :
                             <Box sx={{margin: '0 auto'}}>
-                                <Typography component={'h3'} sx={{fontSize: '32px'}}>
+                                <Typography component={'h3'} sx={{fontSize: '32px', marginBottom: '20px'}}>
                                     Правильных ответов {score} из {questions.length}
                                 </Typography>
                                 <MyChart UserData={UserData}/>
                                 <Button onClick={refresh} variant="outlined" sx={{
                                     marginBottom: '10px',
-                                    borderRadius: '20px',
+                                    borderRadius: '10px',
                                     padding: '5px',
                                     borderColor: 'black',
-                                    marginTop: '10px'
+                                    marginTop: '50px'
                                 }}>
                                     Попробовать ещё раз?
                                 </Button>

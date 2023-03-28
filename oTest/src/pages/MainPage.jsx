@@ -173,7 +173,7 @@ const MainPage = () => {
             <Container maxWidth={'lg'}>
                 <Box sx={{textAlign: 'center', paddingTop: '3%'}}>
                     <Typography component={'h1'} variant={'h3'} sx={{fontSize: {sm:'48px', xs: '32px'}}}>
-                        ПЕРЕЧЕНЬ ТЕСТОВ
+                        ПЕРЕЧЕНЬ ВОПРОСОВ
                     </Typography>
                     <Typography component={'h2'} variant={'h5'} sx={{fontSize: {sm:'24px', xs: '20px'}}}>
                         для проверки знаний, полученных в процессе обучения рабочих
